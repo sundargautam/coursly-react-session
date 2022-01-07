@@ -1,19 +1,10 @@
-import React, { Component } from "react";
+//eventlistening,props,statemangement,lifecycle
 
-class App extends Component {
-  constructor(props) {
-    super(props);
- 
-  }
-
-
-  render() {
-    return (
-      <div className="main-app">
-    
-      </div>
-    );
-  }
-}
-
-export default App;
+export const App = ({ name, description }) => {
+  return (
+    <div className="main-app">
+      <h1>Hello world {name}</h1>
+      <h2>{description}</h2>
+    </div>
+  );
+};
