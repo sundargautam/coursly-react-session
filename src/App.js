@@ -10,7 +10,8 @@ const App = () => {
   ];
   return (
     <div className="main-app">
-      <InfoHolder governmentData={nepalGovernmentData} />
+      {/* <InfoHolder governmentData={nepalGovernmentData} /> */}
+
     </div>
   );
 };
