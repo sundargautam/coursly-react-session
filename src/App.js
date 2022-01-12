@@ -3,6 +3,7 @@ import List from "./component/List";
 import data from "./seed";
 const App = () => {
   const [userDetails, setUserDetails] = useState(data);
+
   return (
     <main>
       <section className="container">
@@ -13,5 +14,32 @@ const App = () => {
     </main>
   );
 };
+
+// const App = () => {
+//   const [show, setShow] = useState(true);
+//   return(
+//     <div className="main-app">
+//       {show && (<Child/>)}
+//       <button onClick={(e)=>setShow(!show)}>Show / Hide Child</button>
+//     </div>
+//   )
+// };
+
+// const Child = () => {
+
+//   useEffect(() => {   
+//     return () => {
+
+//       //clean up code 
+//       console.log("i am dead");
+//     };
+//   }, []);
+
+//   return (
+//     <div className="child">
+//       <h2>I am child</h2>
+//     </div>
+//   );
+// };
 
 export default App;
