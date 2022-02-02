@@ -1,64 +1,45 @@
-import { BrowserRouter as Router, Link, NavLink, Redirect, Route, Switch, useParams } from "react-router-dom";
+import "./App.css";
+import { Container } from "react-bootstrap";
+import {
+  BrowserRouter,
+  Route,
+  Switch,
+} from "react-router-dom/cjs/react-router-dom.min";
+
+import Banner from "./component/Banner/Banner";
+import Customnavbar from "./component/CustomNavbar/CustomNavbar";
+import Footer from "./component/Footer/Footer";
+import Home from './pages/Home/Home';
 const App = () => {
   return (
-    <div className="main-app">
-        <Router>
-          <NavLink exact to="/" activeClassName="active">Home</NavLink> 
-          <NavLink to="/contact" activeClassName="active">Contact</NavLink>
-          <Switch>
-          <Route path="/contact" component={ContactPage}/>
-          <Route path="/login" component={LoginPage}/>
-          <Route path="/product/:id" component={ProductPage}/>
-          <Route path="*" component={NotFound}/>
-          </Switch>
-        </Router>
-    </div>
+    <BrowserRouter>
+      <div className="app-wrapper">
+        <Container className="app-inner-wrapper">
+          <Banner banner="Breaking News" />
+          <Customnavbar />
+          <div className="main-app">
+            <Switch>
+            <Route
+                exact
+                path="/"
+                render={() => <Home pageTitle="Latest News" />}
+              />
+              {/* <Route
+                exact
+                path="/"
+                render={() => <Home pageTitle="Latest News" />}
+              />
+              <Route
+                path="/business"
+                render={() => <Business pageTitle="Business News" />}
+              /> */}
+            </Switch>
+          </div>
+          <Footer />
+        </Container>
+      </div>
+    </BrowserRouter>
   );
 };
-
-const Hompage = ()=>{
-  return(
-    <div className="homepage">
-      <h2>I am homepage</h2>
-    </div>
-  )
-}
-
-
-const ProductPage = ()=>{
-   const {id} = useParams();
-  return(
-    <div className="productpage">
-      <h2>I am productpage {id} </h2>
-    </div>
-  )
-}
-
-const ContactPage = ()=>{
-  return (
-    <div className="contact">
-      <h2>ContactPage</h2>
-    </div>
-  )
-}
-
-const LoginPage = ()=>{
-  return (
-    <div className="login">
-      <h2>LoginPage</h2>
-    </div>
-  )
-}
-
-
-const NotFound = ()=>{
-  return (
-    <div className="notfound">
-      <h2>Opps!!! Page Not Found</h2>
-    </div>
-  )
-}
-
-
 
 export default App;
